@@ -3,37 +3,37 @@
 [ext_resource type="Script" uid="uid://c2dnkre1nwvrp" path="res://pause_menu.gd" id="1_hdmo1"]
 [ext_resource type="FontFile" uid="uid://disptfi5qg5kq" path="res://asstes/BoldPixels.ttf" id="2_nwcfo"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
-bg_color = Color(0, 0, 0, 0.4862745)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nc7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
+bg_color = Color(0.323701, 0.323701, 0.327093, 0.486275)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_color = Color(0, 0, 0, 0.380392)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
-bg_color = Color(0.30323282, 0.30323282, 0.30323282, 0.4862745)
+bg_color = Color(0.303233, 0.303233, 0.303233, 0.486275)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_color = Color(0, 0, 0, 0.380392)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
-bg_color = Color(0.32370105, 0.3237008, 0.3270929, 0.4862745)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
+bg_color = Color(0, 0, 0, 0.486275)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_color = Color(0, 0, 0, 0.380392)
 shadow_size = 5
 shadow_offset = Vector2(0, 3.41)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nc7s"]
 
 [sub_resource type="Animation" id="Animation_p81d2"]
 resource_name = "blur"
@@ -46,7 +46,6 @@ _data = {
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,49 +65,49 @@ theme_override_constants/separation = 50
 [node name="resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("2_nwcfo")
 theme_override_font_sizes/font_size = 33
-theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
 text = "Resume"
 
 [node name="restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("2_nwcfo")
 theme_override_font_sizes/font_size = 33
-theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
 text = "Restart"
 
 [node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_constants/h_separation = 0
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("2_nwcfo")
 theme_override_font_sizes/font_size = 33
-theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
-theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
 text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

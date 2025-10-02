@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3tq3q8od4vuy"]
+
+[ext_resource type="Script" uid="uid://vf0av3eksexd" path="res://control_popup.gd" id="1_mkeeb"]
+[ext_resource type="FontFile" uid="uid://disptfi5qg5kq" path="res://asstes/BoldPixels.ttf" id="2_qjygd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qjygd"]
+bg_color = Color(0.537255, 0.109804, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.976471, 0.462745, 0.827451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control-popup" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_mkeeb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PopupPanel" type="PopupPanel" parent="CanvasLayer"]
+initial_position = 2
+size = Vector2i(300, 347)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_qjygd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PopupPanel"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 296.0
+offset_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="CanvasLayer/PopupPanel/VBoxContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qjygd")
+theme_override_font_sizes/font_size = 25
+text = "here is the quiz"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PopupPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="optiona" type="Button" parent="CanvasLayer/PopupPanel/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qjygd")
+theme_override_font_sizes/font_size = 29
+text = "button 1"
+
+[node name="optionb" type="Button" parent="CanvasLayer/PopupPanel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qjygd")
+theme_override_font_sizes/font_size = 29
+text = "Button 2"
+
+[node name="optionc" type="Button" parent="CanvasLayer/PopupPanel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qjygd")
+theme_override_font_sizes/font_size = 29
+text = "button 3"
+
+[node name="Cancel" type="Button" parent="CanvasLayer/PopupPanel/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_qjygd")
+theme_override_font_sizes/font_size = 29
+text = "Cancel"
