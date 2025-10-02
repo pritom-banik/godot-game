@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dbgg7volws55y"]
+[gd_scene load_steps=12 format=4 uid="uid://dbgg7volws55y"]
 
 [ext_resource type="Texture2D" uid="uid://cpii4frbmk3jt" path="res://asstes/background.jpg" id="1_imnkx"]
 [ext_resource type="Texture2D" uid="uid://cid0siarrmkra" path="res://asstes/space-2.jpg" id="1_xobtm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcubdf2itowf3" path="res://character-scene.tscn" id="4_xobtm"]
 [ext_resource type="PackedScene" uid="uid://bfpflluyrmrhe" path="res://fan_type_something.tscn" id="6_1x62d"]
 [ext_resource type="Script" uid="uid://b5d1jnjmyfsur" path="res://window-layer.gd" id="6_o2bk8"]
+[ext_resource type="PackedScene" uid="uid://dmh1oyh4ste50" path="res://pause_menu.tscn" id="7_o2bk8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3fb0l"]
 texture = ExtResource("3_ecbyu")
@@ -315,6 +316,7 @@ texture = ExtResource("3_ecbyu")
 sources/0 = SubResource("TileSetAtlasSource_1x62d")
 
 [node name="game" type="Node2D"]
+process_mode = 3
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(5491, 1252)
@@ -385,23 +387,28 @@ rotation = 1.57081
 position = Vector2(-325, 1876)
 rotation = 1.57081
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="fans"]
 tile_map_data = PackedByteArray("AAAkAI0AAAARAAIAAAAlAI0AAAASAAIAAAAmAI0AAAATAAIAAAAnAI0AAAARAAIAAAAoAI0AAAASAAIAAAApAI0AAAATAAIAAAAqAI0AAAARAAIAAAArAI0AAAASAAIAAAAsAI0AAAATAAIAAAAtAI0AAAARAAIAAAAuAI0AAAASAAIAAAAvAI0AAAATAAIAAAAwAI0AAAARAAIAAAAxAI0AAAASAAIAAAAyAI0AAAATAAIAAAAzAI0AAAARAAIAAAA0AI0AAAASAAIAAAA1AI0AAAATAAIAAAAzAIwAAAARAAIAAAA0AIwAAAASAAIAAAA1AIwAAAATAAIAAAAwAIwAAAARAAIAAAAxAIwAAAASAAIAAAAyAIwAAAATAAIAAAAtAIwAAAARAAIAAAAuAIwAAAASAAIAAAAvAIwAAAATAAIAAAAqAIsAAAARAAIAAAArAIsAAAASAAIAAAAsAIsAAAATAAIAAAAqAIwAAAARAAIAAAArAIwAAAASAAIAAAAsAIwAAAATAAIAAAAnAIwAAAARAAIAAAAoAIwAAAASAAIAAAApAIwAAAATAAIAAAAkAIwAAAARAAIAAAAlAIwAAAASAAIAAAAmAIwAAAATAAIAAAAkAIsAAAARAAIAAAAlAIsAAAASAAIAAAAmAIsAAAATAAIAAAAnAIsAAAARAAIAAAAoAIsAAAASAAIAAAApAIsAAAATAAIAAAAtAIsAAAARAAIAAAAuAIsAAAASAAIAAAAvAIsAAAATAAIAAAAwAIsAAAARAAIAAAAxAIsAAAASAAIAAAAyAIsAAAATAAIAAAAzAIsAAAARAAIAAAA0AIsAAAASAAIAAAA1AIsAAAATAAIAAAAzAIoAAAARAAIAAAA0AIoAAAASAAIAAAA1AIoAAAATAAIAAAAwAIoAAAARAAIAAAAxAIoAAAASAAIAAAAyAIoAAAATAAIAAAAtAIoAAAARAAIAAAAuAIoAAAASAAIAAAAvAIoAAAATAAIAAAAqAIoAAAARAAIAAAArAIoAAAASAAIAAAAsAIoAAAATAAIAAAAnAIoAAAARAAIAAAAoAIoAAAASAAIAAAApAIoAAAATAAIAAAAkAIoAAAARAAIAAAAlAIoAAAASAAIAAAAmAIoAAAATAAIAAAAkAIkAAAARAAIAAAAlAIkAAAASAAIAAAAmAIkAAAATAAIAAAAkAIgAAAARAAIAAAAlAIgAAAASAAIAAAAmAIgAAAATAAIAAAAnAIgAAAARAAIAAAAoAIgAAAASAAIAAAApAIgAAAATAAIAAAAnAIkAAAARAAIAAAAoAIkAAAASAAIAAAApAIkAAAATAAIAAAAqAIgAAAARAAIAAAArAIgAAAASAAIAAAAsAIgAAAATAAIAAAAqAIkAAAARAAIAAAArAIkAAAASAAIAAAAsAIkAAAATAAIAAAAtAIkAAAARAAIAAAAuAIkAAAASAAIAAAAvAIkAAAATAAIAAAAtAIgAAAARAAIAAAAuAIgAAAASAAIAAAAvAIgAAAATAAIAAAAwAIkAAAARAAIAAAAxAIkAAAASAAIAAAAyAIkAAAATAAIAAAAwAIgAAAARAAIAAAAxAIgAAAASAAIAAAAyAIgAAAATAAIAAAAzAIgAAAARAAIAAAA0AIgAAAASAAIAAAA1AIgAAAATAAIAAAAzAIkAAAARAAIAAAA0AIkAAAASAAIAAAA1AIkAAAATAAIAAAAkAIcAAAARAAIAAAAlAIcAAAASAAIAAAAmAIcAAAATAAIAAAAnAIcAAAARAAIAAAAoAIcAAAASAAIAAAApAIcAAAATAAIAAAAqAIcAAAARAAIAAAArAIcAAAASAAIAAAAsAIcAAAATAAIAAAAtAIcAAAARAAIAAAAuAIcAAAASAAIAAAAvAIcAAAATAAIAAAAwAIcAAAARAAIAAAAxAIcAAAASAAIAAAAyAIcAAAATAAIAAAAzAIcAAAARAAIAAAA0AIcAAAASAAIAAAA1AIcAAAATAAIAAAA=")
 tile_set = SubResource("TileSet_o2bk8")
 script = ExtResource("6_o2bk8")
 
-[node name="HTTPRequest" type="HTTPRequest" parent="TileMapLayer"]
+[node name="HTTPRequest" type="HTTPRequest" parent="fans/TileMapLayer"]
 
-[node name="PopupPanel" type="PopupPanel" parent="TileMapLayer"]
+[node name="PopupPanel" type="PopupPanel" parent="fans/TileMapLayer"]
 
-[node name="TextureRect" type="TextureRect" parent="TileMapLayer/PopupPanel"]
+[node name="TextureRect" type="TextureRect" parent="fans/TileMapLayer/PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 96.0
 offset_bottom = 96.0
 
-[node name="Button" type="Button" parent="TileMapLayer/PopupPanel"]
+[node name="Button" type="Button" parent="fans/TileMapLayer/PopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 96.0
 offset_bottom = 96.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_o2bk8")]
+process_mode = 0
