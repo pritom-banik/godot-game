@@ -136,7 +136,7 @@ size_flags_horizontal = 4
 theme_override_colors/font_shadow_color = Color(0.5330367, 0.5330367, 0.5330367, 0)
 theme_override_fonts/font = ExtResource("3_v2mkm")
 theme_override_font_sizes/font_size = 110
-text = "Space Explorer"
+text = "Gravity 0.0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
