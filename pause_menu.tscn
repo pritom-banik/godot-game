@@ -1,26 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmh1oyh4ste50"]
+[gd_scene load_steps=9 format=3 uid="uid://dmh1oyh4ste50"]
 
 [ext_resource type="Script" uid="uid://c2dnkre1nwvrp" path="res://pause_menu.gd" id="1_hdmo1"]
+[ext_resource type="FontFile" uid="uid://disptfi5qg5kq" path="res://asstes/BoldPixels.ttf" id="2_nwcfo"]
 
-[sub_resource type="Shader" id="Shader_nwcfo"]
-code = "shader_type canvas_item;
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
+bg_color = Color(0, 0, 0, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
-uniform sampler2D SCREEN_TEXTURE:hint_screen_texture,filter_linear_mipmap;
-uniform float lod:hint_range(0.0,5)=0.0;
-void fragment() {
-	vec4 color=texture(SCREEN_TEXTURE,SCREEN_UV,lod);
-	COLOR = color;
-}
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05uyy"]
+bg_color = Color(0.30323282, 0.30323282, 0.30323282, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p81d2"]
+bg_color = Color(0.32370105, 0.3237008, 0.3270929, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_05uyy"]
-shader = SubResource("Shader_nwcfo")
-shader_parameter/lod = 0.886000042085
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2nc7s"]
 
 [sub_resource type="Animation" id="Animation_p81d2"]
 resource_name = "blur"
@@ -42,52 +55,67 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hdmo1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_05uyy")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 389.5
+offset_top = 107.5
+offset_right = 762.5
+offset_bottom = 540.5
+theme_override_constants/separation = 50
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -293.0
-offset_top = -269.0
-offset_right = 270.0
-offset_bottom = 264.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="resume" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_nwcfo")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+text = "Resume"
 
-[node name="resume" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Resume
-"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_nwcfo")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+text = "Restart"
 
-[node name="restart" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Restart
-"
-
-[node name="quit" type="Button" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit
-"
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_nwcfo")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_nwcfo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05uyy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p81d2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2nc7s")
+text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2nc7s")
 }
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

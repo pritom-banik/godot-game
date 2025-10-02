@@ -1,0 +1,156 @@
+[gd_scene load_steps=12 format=3 uid="uid://v76wpy8yrsmk"]
+
+[ext_resource type="Texture2D" uid="uid://cpii4frbmk3jt" path="res://asstes/background.jpg" id="1_jwbto"]
+[ext_resource type="Script" uid="uid://dpbmqecmpa1j1" path="res://start_menu.gd" id="1_vpdu5"]
+[ext_resource type="FontFile" uid="uid://disptfi5qg5kq" path="res://asstes/BoldPixels.ttf" id="3_v2mkm"]
+[ext_resource type="Texture2D" uid="uid://dng70f6qitg8i" path="res://asstes/Picsart_25-10-02_04-31-41-466.png" id="5_ctwoq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ia0g5"]
+texture = ExtResource("1_jwbto")
+modulate_color = Color(0.24115604, 0.24115604, 0.24115604, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpdu5"]
+bg_color = Color(0, 0, 0, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ctwoq"]
+bg_color = Color(0.30323282, 0.30323282, 0.30323282, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppfnh"]
+bg_color = Color(0.32370105, 0.3237008, 0.3270929, 0.4862745)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.38039216)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7boi2"]
+
+[sub_resource type="Animation" id="Animation_ppfnh"]
+resource_name = "astro_move_at_stmn"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7boi2"]
+_data = {
+&"astro_move_at_stmn": SubResource("Animation_ppfnh")
+}
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_vpdu5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ia0g5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.08337
+offset_top = 19.0
+offset_right = 120.416626
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_v2mkm")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ctwoq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ppfnh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7boi2")
+text = "Start Game"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_constants/h_separation = 0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_v2mkm")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_vpdu5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ctwoq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ppfnh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7boi2")
+text = "Exit
+"
+
+[node name="gameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.33334
+offset_top = -213.0
+offset_right = 337.66663
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_shadow_color = Color(0.5330367, 0.5330367, 0.5330367, 0)
+theme_override_fonts/font = ExtResource("3_v2mkm")
+theme_override_font_sizes/font_size = 110
+text = "Space Explorer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Astronaut" type="Sprite2D" parent="."]
+position = Vector2(142.66666, 443)
+scale = Vector2(0.102777764, 0.10277778)
+texture = ExtResource("5_ctwoq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Astronaut"]
+libraries = {
+&"": SubResource("AnimationLibrary_7boi2")
+}
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
