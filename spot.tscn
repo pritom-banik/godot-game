@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dgi33ukgdhgbu"]
+[gd_scene load_steps=7 format=4 uid="uid://dgi33ukgdhgbu"]
 
 [ext_resource type="Texture2D" uid="uid://lsmlkam74slf" path="res://asstes/Terrain (16x16).png" id="1_mgbwf"]
 [ext_resource type="Script" uid="uid://b5d1jnjmyfsur" path="res://window-layer.gd" id="2_qvkxr"]
+[ext_resource type="FontFile" uid="uid://disptfi5qg5kq" path="res://asstes/BoldPixels.ttf" id="3_qvkxr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1x62d"]
 texture = ExtResource("1_mgbwf")
@@ -153,6 +154,8 @@ texture = ExtResource("1_mgbwf")
 [sub_resource type="TileSet" id="TileSet_o2bk8"]
 sources/0 = SubResource("TileSetAtlasSource_1x62d")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ld3it"]
+
 [node name="TileMapLayer" type="TileMapLayer"]
 tile_map_data = PackedByteArray("AAAkAI0AAAARAAIAAAAlAI0AAAASAAIAAAAmAI0AAAATAAIAAAAnAI0AAAARAAIAAAAoAI0AAAASAAIAAAApAI0AAAATAAIAAAAqAI0AAAARAAIAAAArAI0AAAASAAIAAAAsAI0AAAATAAIAAAAtAI0AAAARAAIAAAAuAI0AAAASAAIAAAAvAI0AAAATAAIAAAAwAI0AAAARAAIAAAAxAI0AAAASAAIAAAAyAI0AAAATAAIAAAAzAI0AAAARAAIAAAA0AI0AAAASAAIAAAA1AI0AAAATAAIAAAAzAIwAAAARAAIAAAA0AIwAAAASAAIAAAA1AIwAAAATAAIAAAAwAIwAAAARAAIAAAAxAIwAAAASAAIAAAAyAIwAAAATAAIAAAAtAIwAAAARAAIAAAAuAIwAAAASAAIAAAAvAIwAAAATAAIAAAAqAIsAAAARAAIAAAArAIsAAAASAAIAAAAsAIsAAAATAAIAAAAqAIwAAAARAAIAAAArAIwAAAASAAIAAAAsAIwAAAATAAIAAAAnAIwAAAARAAIAAAAoAIwAAAASAAIAAAApAIwAAAATAAIAAAAkAIwAAAARAAIAAAAlAIwAAAASAAIAAAAmAIwAAAATAAIAAAAkAIsAAAARAAIAAAAlAIsAAAASAAIAAAAmAIsAAAATAAIAAAAnAIsAAAARAAIAAAAoAIsAAAASAAIAAAApAIsAAAATAAIAAAAtAIsAAAARAAIAAAAuAIsAAAASAAIAAAAvAIsAAAATAAIAAAAwAIsAAAARAAIAAAAxAIsAAAASAAIAAAAyAIsAAAATAAIAAAAzAIsAAAARAAIAAAA0AIsAAAASAAIAAAA1AIsAAAATAAIAAAAzAIoAAAARAAIAAAA0AIoAAAASAAIAAAA1AIoAAAATAAIAAAAwAIoAAAARAAIAAAAxAIoAAAASAAIAAAAyAIoAAAATAAIAAAAtAIoAAAARAAIAAAAuAIoAAAASAAIAAAAvAIoAAAATAAIAAAAqAIoAAAARAAIAAAArAIoAAAASAAIAAAAsAIoAAAATAAIAAAAnAIoAAAARAAIAAAAoAIoAAAASAAIAAAApAIoAAAATAAIAAAAkAIoAAAARAAIAAAAlAIoAAAASAAIAAAAmAIoAAAATAAIAAAAkAIkAAAARAAIAAAAlAIkAAAASAAIAAAAmAIkAAAATAAIAAAAkAIgAAAARAAIAAAAlAIgAAAASAAIAAAAmAIgAAAATAAIAAAAnAIgAAAARAAIAAAAoAIgAAAASAAIAAAApAIgAAAATAAIAAAAnAIkAAAARAAIAAAAoAIkAAAASAAIAAAApAIkAAAATAAIAAAAqAIgAAAARAAIAAAArAIgAAAASAAIAAAAsAIgAAAATAAIAAAAqAIkAAAARAAIAAAArAIkAAAASAAIAAAAsAIkAAAATAAIAAAAtAIkAAAARAAIAAAAuAIkAAAASAAIAAAAvAIkAAAATAAIAAAAtAIgAAAARAAIAAAAuAIgAAAASAAIAAAAvAIgAAAATAAIAAAAwAIkAAAARAAIAAAAxAIkAAAASAAIAAAAyAIkAAAATAAIAAAAwAIgAAAARAAIAAAAxAIgAAAASAAIAAAAyAIgAAAATAAIAAAAzAIgAAAARAAIAAAA0AIgAAAASAAIAAAA1AIgAAAATAAIAAAAzAIkAAAARAAIAAAA0AIkAAAASAAIAAAA1AIkAAAATAAIAAAAkAIcAAAARAAIAAAAlAIcAAAASAAIAAAAmAIcAAAATAAIAAAAnAIcAAAARAAIAAAAoAIcAAAASAAIAAAApAIcAAAATAAIAAAAqAIcAAAARAAIAAAArAIcAAAASAAIAAAAsAIcAAAATAAIAAAAtAIcAAAARAAIAAAAuAIcAAAASAAIAAAAvAIcAAAATAAIAAAAwAIcAAAARAAIAAAAxAIcAAAASAAIAAAAyAIcAAAATAAIAAAAzAIcAAAARAAIAAAA0AIcAAAASAAIAAAA1AIcAAAATAAIAAAA=")
 tile_set = SubResource("TileSet_o2bk8")
@@ -162,15 +165,41 @@ script = ExtResource("2_qvkxr")
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
 auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(608, 510)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ld3it")
 
-[node name="TextureRect" type="TextureRect" parent="PopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupPanel"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 500)
+offset_right = 608.0
+offset_bottom = 510.0
+theme_override_constants/separation = 14
 
-[node name="Button" type="Button" parent="PopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+[node name="TextureRect" type="TextureRect" parent="PopupPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+expand_mode = 2
+stretch_mode = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.36
+
+[node name="Label" type="Label" parent="PopupPanel/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qvkxr")
+theme_override_font_sizes/font_size = 38
+text = "Description loading ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cancel" type="Button" parent="PopupPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_qvkxr")
+theme_override_font_sizes/font_size = 29
+text = "Continue
+"

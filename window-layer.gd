@@ -3,8 +3,9 @@ extends TileMapLayer
 # Node references
 @onready var http_request: HTTPRequest = $HTTPRequest
 @onready var popup: PopupPanel = $PopupPanel
-@onready var image_rect: TextureRect = $PopupPanel/TextureRect
-@onready var ok_button: Button = $PopupPanel/Button
+@onready var image_rect: TextureRect = $PopupPanel/VBoxContainer/TextureRect
+@onready var ok_button: Button = $PopupPanel/VBoxContainer/Cancel
+@onready var desctiption: Label = $PopupPanel/VBoxContainer/ScrollContainer/Label
 
 # Player reference (adjust path to your Player node)
 @onready var player = get_node("../Player")
@@ -22,7 +23,12 @@ func _ready():
 	http_request.request_completed.connect(_on_request_completed)
 	ok_button.pressed.connect(_on_ok_pressed)
 
+
 func _process(delta):
+	if Input.is_action_just_pressed("ui_accept"):  # "ui_accept" is Enter/Return/Space by default
+		popup.hide()
+		get_tree().paused = false
+		print("Game paused by Enter key")
 	if not player:
 		return  # Player node not found
 
@@ -30,6 +36,7 @@ func _process(delta):
 	if is_player_on_tile(player.global_position):
 		if not player_on_it:
 			player_on_it = true
+			get_tree().paused = true
 			show_popup_with_image()
 	else:
 		player_on_it = false
@@ -85,6 +92,8 @@ func _on_request_completed(result, response_code, headers, body):
 
 	# Usually links[0] is the preview image
 	var img_url = items[random_index]["links"][0]["href"]
+	desctiption.text = items[random_index]["data"][0]["description"]
+	print(desctiption.text)
 	load_image_from_url(img_url)
 
 # Load image from URL into TextureRect
@@ -113,3 +122,4 @@ func load_image_from_url(url: String):
 # Hide popup when OK button is pressed
 func _on_ok_pressed():
 	popup.hide()
+	get_tree().paused = false
