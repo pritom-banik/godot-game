@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cid0siarrmkra"
-path="res://.godot/imported/space-2.jpg-afcb8e3ed1430fe33eec6980c74aaf75.ctex"
+uid="uid://cjfkima0ivti2"
+path="res://.godot/imported/rock_obs.png-7b6d82fad0ee9bc8d70a899a9ac0c758.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asstes/space-2.jpg"
-dest_files=["res://.godot/imported/space-2.jpg-afcb8e3ed1430fe33eec6980c74aaf75.ctex"]
+source_file="res://asstes/rock_obs.png"
+dest_files=["res://.godot/imported/rock_obs.png-7b6d82fad0ee9bc8d70a899a9ac0c758.ctex"]
 
 [params]
 

@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcubdf2itowf3"]
+[gd_scene load_steps=8 format=3 uid="uid://bcubdf2itowf3"]
 
 [ext_resource type="Texture2D" uid="uid://cfx0tp7stx8jd" path="res://asstes/Shadow Chara 1.png" id="1_2xs5p"]
 [ext_resource type="Script" uid="uid://f8jg42imuavk" path="res://character_scene.gd" id="1_651x7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b0qm5"]
+atlas = ExtResource("1_2xs5p")
+region = Rect2(652, 0, 652, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_651x7"]
+atlas = ExtResource("1_2xs5p")
+region = Rect2(0, 0, 652, 333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5c3g"]
 atlas = ExtResource("1_2xs5p")
 region = Rect2(652, 0, 652, 333)
 
@@ -16,6 +24,17 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_651x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5c3g")
+}],
+"loop": true,
+"name": &"floating",
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2xs5p"]
@@ -29,12 +48,15 @@ script = ExtResource("1_651x7")
 [node name="animatedspite2d" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(76, -23)
+rotation = -0.474808
 scale = Vector2(0.768405, 0.782282)
 sprite_frames = SubResource("SpriteFrames_embuo")
 autoplay = "default"
-frame_progress = 0.658906
+frame_progress = 0.0581023
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(78, -23)
-rotation = 0.802954
+rotation = 0.310613
 shape = SubResource("CapsuleShape2D_2xs5p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
