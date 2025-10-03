@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi0v8bqt4pe2c"]
+
+[ext_resource type="Texture2D" uid="uid://rwq7u6ob62d4" path="res://asstes/rock_obs2.png" id="1_x3onm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uaim1"]
+radius = 52.0
+height = 116.0
+
+[node name="CharacterBody2D2" type="CharacterBody2D" groups=["rocks"]]
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x3onm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_uaim1")
